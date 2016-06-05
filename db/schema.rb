@@ -13,13 +13,16 @@
 
 ActiveRecord::Schema.define(version: 20160627063253) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "users", force: :cascade do |t|
     t.string   "email"
     t.string   "api_key"
     t.string   "password_digest"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
-    t.index ["email"], name: "index_users_on_email"
+    t.index ["email"], name: "index_users_on_email", using: :btree
   end
 
   create_table "work_spaces", force: :cascade do |t|

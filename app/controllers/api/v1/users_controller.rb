@@ -15,16 +15,6 @@ module Api
         render json: @user
       end
 
-      def create
-        @user = User.new(user_params)
-
-        if @user.save
-          render json: @user, status: :created, location: @user
-        else
-          render json: @user.errors, status: :unprocessable_entity
-        end
-      end
-
       def update
         if @user.update(user_params)
           render json: @user
@@ -44,7 +34,7 @@ module Api
         end
 
         def user_params
-          params.require(:user).permit(:email, :api_key, :password_digest)
+          params.require(:user).permit(:email, :phone)
         end
     end
   end

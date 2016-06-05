@@ -1,6 +1,6 @@
 class Api::V1::BaseController < ApplicationController
   # api base controller, try to put all common authentication here
-  before_filter :user_api_key_authentication!
+  before_action :user_api_key_authentication!
 
 
   private

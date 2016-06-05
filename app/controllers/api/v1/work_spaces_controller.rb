@@ -19,7 +19,7 @@ module Api
         @work_space = WorkSpace.new(work_space_params)
 
         if @work_space.save
-          render json: @work_space, status: :created, location: @work_space
+          render json: @work_space, status: :created, location: api_v1_work_space_url(@work_space)
         else
           render json: @work_space.errors, status: :unprocessable_entity
         end

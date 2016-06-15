@@ -1,5 +1,5 @@
 class WorkSpaceSerializer < ActiveModel::Serializer
-  attributes :id, :name, :description, :no_of_seats
+  attributes :id, :name, :description, :no_of_seats, :featured
 
   belongs_to :city
 

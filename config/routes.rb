@@ -7,6 +7,7 @@ Rails.application.routes.draw do
       post '/sign_up' => 'session#sign_up', as: :sign_up
       post '/sign_in' => 'session#sign_in', as: :sign_in
       post '/get_user' => 'session#get_user', as: :get_user
+      post '/mark_featured' => 'session#mark_featured', as: :mark_featured
       resources :work_spaces
       resources :users
       resources :cities

@@ -27,6 +27,15 @@ class Api::V1::SessionController < ApplicationController
     end
   end
 
+  def mark_featured
+    work_space = WorkSpace.find(params[:id])
+    if work_space && work_space.update_attributes(featured: true)
+      render json: work_space
+    else
+      render json: {"errors": true, "message": 'Invalid data'}, status: :unprocessable_entity
+    end
+  end
+
   private
     def user_params
       params.require(:user).permit(:email, :password, :password_confirmation, :phone)
